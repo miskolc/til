@@ -1,0 +1,21 @@
+## Allow fields explicitly
+
+#### cast(data, params, allowed)
+
+You have to allow the fields you want to change explicitly in the `cast/3` method's third parameter( `allowed`):
+
+        iex(27)> changeset = %{category_id: 1}                                   
+        %{category_id: 1}
+        iex(28)> changeset = cast(%LeafCategoryList{}, changeset, [])            
+        #Ecto.Changeset<action: nil, changes: %{}, errors: [],
+         data: #BlackFriday.LeafCategoryList<>, valid?: true>
+        iex(29)> changeset = %{category_id: 1}                                   
+        %{category_id: 1}
+        iex(30)> changeset = cast(%LeafCategoryList{}, changeset, [:category_id])
+        #Ecto.Changeset<action: nil, changes: %{category_id: 1}, errors: [],
+         data: #BlackFriday.LeafCategoryList<>, valid?: true>
+         
+## Context
+
+#### Had problems when inserting the leaf category lists for each category in the database
+The values for the foreign key column where not added to the table because Phoenix doesn't seem to add the foreign key column to the `allowed` list
