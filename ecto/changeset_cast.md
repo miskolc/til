@@ -36,6 +36,10 @@ The values for the foreign key column where not added to the table because Phoen
 Use `cast/3` for dealing with external data that needs conversion
 If you're already in a changeset, you can use `change/2` for programatic modifications`
 
+## Alternative
+
+#### Insert by building the association Changeset similar to how you used to do in ActiveRecord [3]
 
 [1]: https://hexdocs.pm/ecto/Ecto.Changeset.html#cast/3
 [2]: https://github.com/michalmuskala
+[3]
