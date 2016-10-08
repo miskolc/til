@@ -1,4 +1,4 @@
-## Allow fields explicitly
+## Insert Association Records by allowing fields explicitly in cast/3 method
 
 #### cast(data, params, allowed)[1]
 
@@ -14,6 +14,12 @@ You have to allow the fields you want to change explicitly in the `cast/3` metho
         iex(30)> changeset = cast(%LeafCategoryList{}, changeset, [:category_id])
         #Ecto.Changeset<action: nil, changes: %{category_id: 1}, errors: [],
          data: #BlackFriday.LeafCategoryList<>, valid?: true>
+
+Actual code for inserting records
+
+        struct = %{category_id: category_id, list: (category_id |> Integer.to_string)}
+        changeset = LeafCategoryList.changeset(%LeafCategoryList{}, struct)
+        Repo.insert!(changeset)
     
 Had to put the `category_id` inside the allowed list:
          
@@ -42,4 +48,4 @@ If you're already in a changeset, you can use `change/2` for programatic modific
 
 [1]: https://hexdocs.pm/ecto/Ecto.Changeset.html#cast/3
 [2]: https://github.com/michalmuskala
-[3]
+[3]: https://github.com/miskolc/til/blob/master/ecto/build_association_records.md
