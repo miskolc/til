@@ -14,6 +14,15 @@ You have to allow the fields you want to change explicitly in the `cast/3` metho
         iex(30)> changeset = cast(%LeafCategoryList{}, changeset, [:category_id])
         #Ecto.Changeset<action: nil, changes: %{category_id: 1}, errors: [],
          data: #BlackFriday.LeafCategoryList<>, valid?: true>
+    
+Had to put the `category_id` inside the allowed list:
+         
+           def changeset(struct, params \\ %{}) do
+            struct
+            |> cast(params, [:list, :category_id])
+            |> validate_required([:list])
+            |> foreign_key_constraint(:category_id)
+          end
          
 ## Context
 
