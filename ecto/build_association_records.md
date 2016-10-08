@@ -21,12 +21,12 @@ You also don't need to allow the foreign key in the cast method of the changeset
         |> validate_required([:list])
         |> foreign_key_constraint(:category_id)
       end
-      
- ## Context [2]
+
+## Context [2]
  
- ## Alternatives
+## Alternatives
  
- #### Insert using Changeset by allowing foreign key fields explicitely [3]
+#### Insert using Changeset by allowing foreign key fields explicitely [3]
  
 [1]: https://hexdocs.pm/ecto/Ecto.html#build_assoc/3
 [2]: https://github.com/miskolc/til/blob/master/ecto/changeset_cast.md#context
