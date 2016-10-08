@@ -17,7 +17,7 @@ You have to allow the fields you want to change explicitly in the `cast/3` metho
     
 Had to put the `category_id` inside the allowed list:
          
-           def changeset(struct, params \\ %{}) do
+          def changeset(struct, params \\ %{}) do
             struct
             |> cast(params, [:list, :category_id])
             |> validate_required([:list])
