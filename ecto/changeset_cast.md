@@ -19,3 +19,10 @@ You have to allow the fields you want to change explicitly in the `cast/3` metho
 
 #### Had problems when inserting the leaf category lists for each category in the database
 The values for the foreign key column where not added to the table because Phoenix doesn't seem to add the foreign key column to the `allowed` list
+
+`In general - use changeset function for data from external sources. When you do stuff programatically you can create the struct in place` - https://github.com/michalmuskala
+
+
+`If you want to build the struct programatically, you can like with any other struct - i.e. `%Foo{bar: baz}`
+Use `cast/3` for dealing with external data that needs conversion
+If you're already in a changeset, you can use `change/2` for programatic modifications`
