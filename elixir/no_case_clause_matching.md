@@ -18,6 +18,6 @@ mix phoenix.serve
     (elixir) lib/code.ex:363: Code.require_file/2
     
     
-    Fix rm -rf _build && mix do clean, compile 
-    de la https://github.com/parroty/exvcr/issues/24#issuecomment-122477302
+Fix rm -rf _build && mix do clean, compile 
+de la https://github.com/parroty/exvcr/issues/24#issuecomment-122477302
     
